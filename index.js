@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from 'cors';
 
 
 import {checkAuth, handleValidationErrors} from "./utils/index.js";
@@ -14,6 +15,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 app.listen(1234, (err)=>{
     if (err) {
         return console.log(err);
