@@ -1,0 +1,27 @@
+{
+  "name": "back-for-notium",
+  "version": "1.0.0",
+  "description": "made by airvt1x",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airvt1x/back-for-notium.git"
+  },
+  "author": "airvt1x",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airvt1x/back-for-notium/issues"
+  },
+  "homepage": "https://github.com/airvt1x/back-for-notium#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "supervisor": "^0.12.0"
+  }
+}
