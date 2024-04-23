@@ -15,7 +15,19 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+const allowedOrigins = [
+    'https://notium-app.vercel.app/'
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 app.listen(1234, (err)=>{
     if (err) {
         return console.log(err);
