@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 
 import {checkAuth, handleValidationErrors} from "./utils/index.js";
@@ -7,8 +8,11 @@ import { UserController } from "./controllers/index.js";
 
 mongoose.set("strictQuery", false);
 
+dotenv.config();
+const MONGO_DB = process.env.MONGO_DB;
+
 mongoose
-    .connect('mongodb+srv://airvt1x:airvt1xairvt1x@clasteric.adybi34.mongodb.net/notium?retryWrites=true&w=majority&appName=clasteric')
+    .connect(MONGO_DB)
     .then(() => console.log('DB ok'))
     .catch((err) => console.log('DB error', err));
 
