@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 
 
 import {checkAuth, handleValidationErrors} from "./utils/index.js";
-import { UserController } from "./controllers/index.js";
+import { UserController, NoteController } from "./controllers/index.js";
+import Note from "./models/Note.js";
 
 mongoose.set("strictQuery", false);
 
@@ -34,3 +35,9 @@ app.get('/', (req,res) => {
 app.post('/auth/login', handleValidationErrors, UserController.login);
 app.post('/auth/register', handleValidationErrors, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
+
+app.get('/notes', checkAuth, NoteController.getNotes);
+app.get('/notes/:id', checkAuth, NoteController.getOne);
+app.post('/notes', checkAuth, handleValidationErrors, NoteController.create);
+app.delete('/notes/:id', checkAuth, NoteController.remove);
+app.patch('/notes/:id', checkAuth, handleValidationErrors, NoteController.update);
