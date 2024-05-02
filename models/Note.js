@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 
 const NoteSchema = new mongoose.Schema({
     note_data: {
-        type: Map
+        type: Map,
+        required: true,
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,

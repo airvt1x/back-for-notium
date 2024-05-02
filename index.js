@@ -35,7 +35,7 @@ app.get('/', (req,res) => {
 app.post('/auth/login', handleValidationErrors, UserController.login);
 app.post('/auth/register', handleValidationErrors, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
-
+//notes
 app.get('/notes', checkAuth, NoteController.getNotes);
 app.get('/notes/:id', checkAuth, NoteController.getOne);
 app.post('/notes', checkAuth, handleValidationErrors, NoteController.create);
