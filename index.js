@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 
 import {checkAuth, handleValidationErrors} from "./utils/index.js";
 import { UserController, NoteController } from "./controllers/index.js";
-import Note from "./models/Note.js";
 
 mongoose.set("strictQuery", false);
 

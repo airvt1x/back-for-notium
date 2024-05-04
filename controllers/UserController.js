@@ -14,13 +14,13 @@ export const register = async (req, res) => {
         photoUrl:req.body.photoUrl,
         Gitid:req.body.Gitid,
     });
-
+    const hash_env = process.env.HASH;
     const user = await doc.save();
 
     const token = jwt.sign({
         _id: user._id,
     },
-    'alexander_genius',
+    hash_env,
     {
         expiresIn: '30d',
     });
@@ -55,12 +55,12 @@ export const login = async(req, res)=>{
                 message: 'Неверный логин или пароль',
             });
         }
-
+        const hash_env = process.env.HASH;
         const token = jwt.sign(
             {
             _id: user._id,
             },
-            'alexander_genius',
+            hash_env,
             {
              expiresIn: '30d',
             }

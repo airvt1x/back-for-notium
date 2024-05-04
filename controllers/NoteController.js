@@ -75,7 +75,7 @@ export const create = async (req, res) => {
 export const update = async(req, res) => {
     try {
         const noteId = req.params.id;
-        const user_id = req.userId
+        const user_id = req.userId;
         await NoteModel.updateOne({
             _id: noteId,
         },
