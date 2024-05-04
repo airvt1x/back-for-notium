@@ -75,7 +75,7 @@ export const create = async (req, res) => {
 export const update = async(req, res) => {
     try {
         const noteId = req.params.id;
-        
+        const user_id = req.userId
         await NoteModel.updateOne({
             _id: noteId,
         },
@@ -85,10 +85,11 @@ export const update = async(req, res) => {
             user: req.userId,
         },
         );
-
-        res.json({
-            success: true,
-        })
+        NoteModel.findOne(
+            {
+            user: user_id,
+            _id: noteId
+        }).then(note => {res.json(note)});
     } catch (err) {
         res.status(500).json({
             message: 'Не удалось обновить заметку',
