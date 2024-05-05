@@ -12,7 +12,7 @@ const NoteSchema = new mongoose.Schema({
         required: true,
     },
     prority: {
-        type: Number
+        type: Array,
     },
     favorite:{
         type: Boolean

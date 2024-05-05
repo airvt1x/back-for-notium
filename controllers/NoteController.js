@@ -53,10 +53,11 @@ export const remove = async(req,res)=>{
 }
 
 export const create = async (req, res) => {
+    const none_arr =["none"]
     try {
         const doc = new NoteModel({
             note_data: req.body.note_data,
-            priority: req.body.priority,
+            priority: none_arr,
             favorite: false,
             user: req.userId,
         });
