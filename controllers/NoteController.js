@@ -57,6 +57,7 @@ export const create = async (req, res) => {
         const doc = new NoteModel({
             note_data: req.body.note_data,
             priority: req.body.priority,
+            favorite: false,
             user: req.userId,
         });
 
@@ -83,6 +84,7 @@ export const update = async(req, res) => {
             note_data: req.body.note_data,
             priority: req.body.priority,
             user: req.userId,
+            favorite: req.body.favorite,
         },
         );
         NoteModel.findOne(
@@ -96,4 +98,5 @@ export const update = async(req, res) => {
         })
         
     }
-}
+};
+

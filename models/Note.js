@@ -14,6 +14,9 @@ const NoteSchema = new mongoose.Schema({
     prority: {
         type: Number
     },
+    favorite:{
+        type: Boolean
+    },
     },
     {
         timestamps:true,
