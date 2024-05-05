@@ -100,3 +100,20 @@ export const update = async(req, res) => {
     }
 };
 
+export const getfavoriteNotes = async(req,res)=>{
+    const user_id = req.userId
+    try {
+        const notes = await NoteModel.find({
+            user: user_id,
+            favorite: true});
+
+        res.json(notes);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            message: 'Не удалось получить заметки',
+        });
+        
+    }
+}
+

@@ -40,3 +40,4 @@ app.get('/notes/:id', checkAuth, NoteController.getOne);
 app.post('/notes', checkAuth, handleValidationErrors, NoteController.create);
 app.delete('/notes/:id', checkAuth, NoteController.remove);
 app.patch('/notes/:id', checkAuth, handleValidationErrors, NoteController.update);
+app.get('/notes', checkAuth, NoteController.getfavoriteNotes);
