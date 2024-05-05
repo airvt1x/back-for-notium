@@ -11,7 +11,7 @@ const NoteSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    prority: {
+    priority: {
         type: Array,
     },
     favorite:{
