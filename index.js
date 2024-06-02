@@ -48,11 +48,7 @@ app.get('/github', (req,res)=>{
     res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`,)
 });
 app.post('/gitlogin', UserController.gitlogin)
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-  });
+
 app.get('/oauth-callback', (req, res) => {
 
     // The req.query object has the query params that were sent to this route.
