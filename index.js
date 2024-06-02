@@ -63,7 +63,7 @@ app.get('/oauth-callback', (req, res) => {
       }
     }).then((response) => {
         access_token = response.data.access_token
-        res.redirect('/success');
+        res.redirect('https://back-for-notium.vercel.app/success');
       })
     })
     
